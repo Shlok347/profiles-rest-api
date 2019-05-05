@@ -48,7 +48,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(max_length=64, unique=True)
     name = models.CharField(max_length=64)
     password = models.CharField(max_length=64)
-    user_password= models.CharField(max_length=254)
+    user_password = models.CharField(max_length=254)
     imei = models.CharField(max_length=64)
     lock_password = models.CharField(max_length=32)
     master_id = models.CharField(max_length=64)
@@ -58,7 +58,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     objects = UserProfileManager()
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['name', 'password', 'user_password', 'imei', 'lock_password', 'master_id', 'master_password']
 
     def get_full_name(self):
         self.name
